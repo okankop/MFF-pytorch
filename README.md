@@ -32,7 +32,7 @@ Assume the structure of data directories is the following:
 
 
 ### Running the Code
-You can simply run 'python main.py' to start a training with the default parameters. Followings are some examples for training under different scenarios:
+Followings are some examples for training under different scenarios:
 
 * Train 4-segment network with 3 flow, 1 color frames (4-MFFs-3f1c architecture)
 ```bash
