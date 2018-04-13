@@ -1,0 +1,14 @@
+# files types to exculde
+*.tar
+*.mp4
+*.h5
+
+jester
+*.txt
+
+model
+*.pth.tar
+*.pth
+
+log
+*.csv
