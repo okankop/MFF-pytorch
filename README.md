@@ -8,7 +8,7 @@ Pytorch implementation of Motion Fused Frames, built on top of the codebase [TSN
 Otherwise you will not be able to use the inception series CNN architecture.
 
 ### Dataset Preparation
-Download the [jester dataset](https://www.twentybn.com/datasets/something-something) or [NVIDIA dataset](http://research.nvidia.com/publication/online-detection-and-classification-dynamic-hand-gestures-recurrent-3d-convolutional) or [ChaLearn LAP IsoGD dataset](http://www.cbsr.ia.ac.cn/users/jwan/database/isogd.html). Decompress them into the same folder and use [process_dataset.py](process_dataset.py) to generate the index files for train, val, and test split. Poperly set up the train, validatin, and category meta files in [datasets_video.py](datasets_video.py). Finally, use directory [flow_computation](flow_computation) to calculate the optical flow images using Brox method.
+Download the [jester dataset](https://www.twentybn.com/datasets/something-something) or [NVIDIA dynamic hand gestures dataset](http://research.nvidia.com/publication/online-detection-and-classification-dynamic-hand-gestures-recurrent-3d-convolutional) or [ChaLearn LAP IsoGD dataset](http://www.cbsr.ia.ac.cn/users/jwan/database/isogd.html). Decompress them into the same folder and use [process_dataset.py](process_dataset.py) to generate the index files for train, val, and test split. Poperly set up the train, validatin, and category meta files in [datasets_video.py](datasets_video.py). Finally, use directory [flow_computation](flow_computation) to calculate the optical flow images using Brox method.
 
 Assume the structure of data directories is the following:
 
