@@ -53,7 +53,7 @@ python main.py jester RGBFlow --resume=<path-to-last-checkpoint> --arch BNIncept
 --consensus_type MLP --num_segments 4 --num_motion 3  --batch-size 32
 ```
 
-* The command to test trained model (4-MFFs-3f1c architecture)
+* The command to test trained models (4-MFFs-3f1c architecture). Pretrained models are under [pretrained_models](pretrained_models).
 
 ```bash
 python test_models.py jester RGBFlow pretrained_models/MFF_jester_RGBFlow_BNInception_segment4_3f1c_best.pth.tar --arch BNInception --consensus_type MLP --test_crops 1 --num_motion 3 --test_segments 4
