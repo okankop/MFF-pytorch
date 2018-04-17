@@ -4,6 +4,13 @@ Pytorch implementation of Motion Fused Frames, built on top of the codebase [TSN
 
 <p align="center"><img src="https://github.com/okankop/MFF-pytorch/blob/master/images/motion_fused_frames.jpg" align="middle" width="500" title="Motion Fused Frames" /></p>
 
+### Requirements
+* [PyTorch](http://pytorch.org/)
+
+* [OpenCV](https://opencv.org/) compiled with CUDA and FFmpeg, for optical flow calculation and data augmentations.
+
+* Python 3
+
 **Note**: always use `git clone --recursive https://github.com/okankop/MFF-pytorch` to clone this project
 Otherwise you will not be able to use the inception series CNN architecture.
 
@@ -46,10 +53,10 @@ python main.py jester RGBFlow --resume=<path-to-last-checkpoint> --arch BNIncept
 --consensus_type MLP --num_segments 4 --num_motion 3  --batch-size 32
 ```
 
-* The command to test trained model (8-MFFs-3f1c architecture)
+* The command to test trained model (4-MFFs-3f1c architecture)
 
 ```bash
-python test_models.py jester RGBFlow model/MFF_jester_RGBFlow_BNInception_segment8_3f1c_best.pth.tar --arch BNInception --consensus_type MLP --test_crops 1 --num_motion 3 --test_segments 8
+python test_models.py jester RGBFlow pretrained_models/MFF_jester_RGBFlow_BNInception_segment4_3f1c_best.pth.tar --arch BNInception --consensus_type MLP --test_crops 1 --num_motion 3 --test_segments 4
 ```
 
 All GPUs are used for the training. If you want a part of GPUs, use CUDA_VISIBLE_DEVICES=...
