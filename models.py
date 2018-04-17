@@ -384,7 +384,7 @@ class TSN(nn.Module):
         elif self.modality == 'RGBFlow':
             return torchvision.transforms.Compose([GroupMultiScaleResize(0.2),
                                                    GroupMultiScaleRotate(20),
-                                                   GroupSpatialElasticDisplacement(),
+                                                   #GroupSpatialElasticDisplacement(),
                                                    GroupMultiScaleCrop(self.input_size,
                                                                       [1, .875,
                                                                       .75,

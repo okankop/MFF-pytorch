@@ -6,9 +6,9 @@
 jester
 *.txt
 
-model
-*.pth.tar
-*.pth
+#model
+#*.pth.tar
+#*.pth
 
 log
 *.csv

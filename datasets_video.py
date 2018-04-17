@@ -12,10 +12,10 @@ def return_jester(modality):
     filename_imglist_val = 'jester/val_videofolder.txt'
     if modality == 'RGB':
         prefix = '{:05d}.jpg'
-        root_data = '/usr/home/kop/datasets/jester'
+        root_data = '/usr/home/kop/MFF-pytorch/datasets/jester'
     elif modality == 'RGBFlow':
         prefix = '{:05d}.jpg'
-        root_data = '/usr/home/kop/datasets/jester'
+        root_data = '/usr/home/kop/MFF-pytorch/datasets/jester'
     else:
         print('no such modality:'+modality)
         os.exit()

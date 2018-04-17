@@ -52,7 +52,7 @@ python main.py jester RGBFlow --resume=<path-to-last-checkpoint> --arch BNIncept
 python test_models.py jester RGBFlow model/MFF_jester_RGBFlow_BNInception_segment8_3f1c_best.pth.tar --arch BNInception --consensus_type MLP --test_crops 1 --num_motion 3 --test_segments 8
 ```
 
-All GPUs is used for the training. If you want a part of GPUs, use CUDA_VISIBLE_DEVICES=...
+All GPUs are used for the training. If you want a part of GPUs, use CUDA_VISIBLE_DEVICES=...
 
 ### Citation
 O. Köpüklü, N. Köse, G. Rigoll. Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition, 2018 [PDF]
