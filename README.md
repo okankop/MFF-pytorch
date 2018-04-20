@@ -4,6 +4,15 @@ Pytorch implementation of Motion Fused Frames, built on top of the codebase [TSN
 
 <p align="center"><img src="https://github.com/okankop/MFF-pytorch/blob/master/images/motion_fused_frames.jpg" align="middle" width="500" title="Motion Fused Frames" /></p>
 
+This is the PyTorch code for the following paper:
+
+[
+Okan Köpüklü, Neslihan Köse, and Gerhard Rigoll  
+"Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition",  
+arXiv preprint, arXiv:1804.07187, 2018.
+](https://arxiv.org/abs/1804.07187)
+
+
 ### Requirements
 * [PyTorch](http://pytorch.org/)
 
@@ -62,11 +71,15 @@ python test_models.py jester RGBFlow pretrained_models/MFF_jester_RGBFlow_BNInce
 All GPUs are used for the training. If you want a part of GPUs, use CUDA_VISIBLE_DEVICES=...
 
 ### Citation
-O. Köpüklü, N. Köse, G. Rigoll. Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition, 2018 [PDF]
-```
+If you use this code or pre-trained models, please cite the following:
+
+```bibtex
 @article{kopuklu2018motion,
-    title = {Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition},
-    author = {K\"op\"ukl\"u, Okan and K\"ose, Neslihan and Rigoll, Gerhard},
+  author = {K\"op\"ukl\"u, Okan and K\"ose, Neslihan and Rigoll, Gerhard},
+  title = {Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition},
+  journal={arXiv preprint},
+  volume={arXiv:1804.07187},
+  year={2018},
 }
 ```
 
