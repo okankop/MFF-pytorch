@@ -6,6 +6,7 @@ jester
 *.txt
 
 __pycache__
+*.pyc
 
 model
 #*.pth.tar
