@@ -5,6 +5,8 @@
 jester
 *.txt
 
+__pycache__
+
 model
 #*.pth.tar
 #*.pth
