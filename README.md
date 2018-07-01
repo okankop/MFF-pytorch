@@ -9,8 +9,8 @@ This is the PyTorch code for the following paper:
 [
 Okan Köpüklü, Neslihan Köse, and Gerhard Rigoll  
 "Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition",  
-arXiv preprint, arXiv:1804.07187, 2018.
-](https://arxiv.org/abs/1804.07187)
+Proceedings of the CVPR Workshop on Analysis and Modeling of Faces and Gestures.
+](http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w41/Kopuklu_Motion_Fused_Frames_CVPR_2018_paper.pdf)
 
 
 ### Requirements
@@ -74,12 +74,12 @@ All GPUs are used for the training. If you want a part of GPUs, use CUDA_VISIBLE
 If you use this code or pre-trained models, please cite the following:
 
 ```bibtex
-@article{kopuklu2018motion,
-  author = {K\"op\"ukl\"u, Okan and K\"ose, Neslihan and Rigoll, Gerhard},
-  title = {Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition},
-  journal={arXiv preprint},
-  volume={arXiv:1804.07187},
-  year={2018},
+@InProceedings{Kopuklu_2018_CVPR_Workshops,
+author = {Kopuklu, Okan and Kose, Neslihan and Rigoll, Gerhard},
+title = {Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition},
+booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+month = {June},
+year = {2018}
 }
 ```
 
