@@ -14,11 +14,11 @@ Proceedings of the CVPR Workshop on Analysis and Modeling of Faces and Gestures.
 
 
 ### Requirements
-* [PyTorch](http://pytorch.org/)
+* [PyTorch 0.3.1](http://pytorch.org/) (version 0.4.0 raises dimension error at loading pretrained models from the model zoo)
 
 * [OpenCV](https://opencv.org/) compiled with CUDA and FFmpeg, for optical flow calculation and data augmentations.
 
-* Python 3
+* Python 3.6
 
 **Note**: always use `git clone --recursive https://github.com/okankop/MFF-pytorch` to clone this project
 Otherwise you will not be able to use the inception series CNN architecture.
