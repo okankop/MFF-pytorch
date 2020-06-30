@@ -2,6 +2,9 @@
 
 Pytorch implementation of the article [Motion fused frames: Data level fusion strategy for hand gesture recognition](http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w41/Kopuklu_Motion_Fused_Frames_CVPR_2018_paper.pdf) 
 
+```diff
+-- Update: Code is updated for Pytorch 1.5.0 and CUDA10.2@@
+```
 #### Update: Code is updated for Pytorch 1.5.0 and CUDA10.2
 
 <p align="center"><img src="https://github.com/okankop/MFF-pytorch/blob/master/images/motion_fused_frames.jpg" align="middle" width="500" title="Motion Fused Frames" /></p>
