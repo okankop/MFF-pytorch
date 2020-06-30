@@ -2,15 +2,15 @@
 *.mp4
 *.h5
 
-jester
-*.txt
+jester/
+#*.txt
 
 __pycache__
 *.pyc
 
-model
+model/
 #*.pth.tar
 #*.pth
 
-log
+log/
 *.csv
