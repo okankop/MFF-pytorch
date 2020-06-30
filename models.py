@@ -4,6 +4,7 @@ from ops.basic_ops import ConsensusModule, Identity
 from transforms import *
 from torch.nn.init import normal, constant
 
+import pretrainedmodels
 import MLPmodule
 
 class TSN(nn.Module):
@@ -102,9 +103,13 @@ class TSN(nn.Module):
 
     def _prepare_base_model(self, base_model):
 
-        if 'resnet' in base_model or 'vgg' in base_model:
-            self.base_model = getattr(torchvision.models, base_model)(True)
-            self.base_model.last_layer_name = 'fc'
+        if 'resnet' in base_model or 'vgg' in base_model or 'squeezenet1_1' in base_model:
+            self.base_model = pretrainedmodels.__dict__[base_model](num_classes=1000, pretrained='imagenet')
+            if base_model == 'squeezenet1_1':
+                self.base_model = self.base_model.features
+                self.base_model.last_layer_name = '12'
+            else:
+                self.base_model.last_layer_name = 'fc'
             self.input_size = 224
             self.input_mean = [0.485, 0.456, 0.406]
             self.input_std = [0.229, 0.224, 0.225]
@@ -116,38 +121,26 @@ class TSN(nn.Module):
                 self.input_mean = [0.485, 0.456, 0.406] + [0] * 3 * self.new_length
                 self.input_std = self.input_std + [np.mean(self.input_std) * 2] * 3 * self.new_length
         elif base_model == 'BNInception':
-            import model_zoo
-            self.base_model = getattr(model_zoo, base_model)()
-            self.base_model.last_layer_name = 'fc'
+            self.base_model = pretrainedmodels.__dict__['bninception'](num_classes=1000, pretrained='imagenet')
+            self.base_model.last_layer_name = 'last_linear'
             self.input_size = 224
             self.input_mean = [104, 117, 128]
             self.input_std = [1]
-
             if self.modality == 'Flow':
                 self.input_mean = [128]
             elif self.modality == 'RGBDiff':
                 self.input_mean = self.input_mean * (1 + self.new_length)
-            elif self.modality == 'RGBFlow':
-                self.input_mean = self.input_mean * (self.new_length) # NOTE: Check here if can be modified properly!
-        elif base_model == 'InceptionV3':
-            import model_zoo
-            self.base_model = getattr(model_zoo, base_model)()
-            self.base_model.last_layer_name = 'top_cls_fc'
-            self.input_size = 299
-            self.input_mean = [104,117,128]
-            self.input_std = [1]
+        elif 'resnext101' in base_model:
+            self.base_model = pretrainedmodels.__dict__[base_model](num_classes=1000, pretrained='imagenet')
+            print(self.base_model)
+            self.base_model.last_layer_name = 'last_linear'
+            self.input_size = 224
+            self.input_mean = [0.485, 0.456, 0.406]
+            self.input_std = [0.229, 0.224, 0.225]
             if self.modality == 'Flow':
                 self.input_mean = [128]
             elif self.modality == 'RGBDiff':
-                self.input_mean = self.input_mean * (1+self.new_length)
-
-        elif 'inception' in base_model:
-            import model_zoo
-            self.base_model = getattr(model_zoo, base_model)()
-            self.base_model.last_layer_name = 'classif'
-            self.input_size = 299
-            self.input_mean = [0.5]
-            self.input_std = [0.5]
+                self.input_mean = self.input_mean * (1 + self.new_length)
         else:
             raise ValueError('Unknown base model: {}'.format(base_model))
 

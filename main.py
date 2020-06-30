@@ -7,6 +7,7 @@ import torchvision
 import torch.nn.parallel
 import torch.backends.cudnn as cudnn
 import torch.optim
+from torch.autograd import Variable
 from torch.nn.utils import clip_grad_norm
 from torch.utils.data.sampler import SequentialSampler
 
@@ -170,9 +171,9 @@ def train(train_loader, model, criterion, optimizer, epoch, log):
         # measure data loading time
         data_time.update(time.time() - end)
 
-        target = target.cuda(async=True)
-        input_var = torch.autograd.Variable(input)
-        target_var = torch.autograd.Variable(target)
+        target = target.cuda()
+        input_var = Variable(input)
+        target_var = Variable(target)
 
         # compute output
         output = model(input_var)
@@ -227,9 +228,10 @@ def validate(val_loader, model, criterion, iter, log):
 
     end = time.time()
     for i, (input, target) in enumerate(val_loader):
-        target = target.cuda(async=True)
-        input_var = torch.autograd.Variable(input, volatile=True)
-        target_var = torch.autograd.Variable(target, volatile=True)
+        target = target.cuda()
+        with torch.no_grad():
+            input_var = Variable(input)
+            target_var = Variable(target)
 
         # compute output
         output = model(input_var)
