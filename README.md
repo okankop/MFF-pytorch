@@ -1,6 +1,8 @@
 # Motion Fused Frames (MFFs)
 
-Pytorch implementation of Motion Fused Frames, built on top of the codebase [TSN-pytorch](https://github.com/yjxiong/temporal-segment-networks).
+Pytorch implementation of the article [Motion fused frames: Data level fusion strategy for hand gesture recognition](http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w41/Kopuklu_Motion_Fused_Frames_CVPR_2018_paper.pdf) 
+
+<div class="text-red mb-2"> **Update:** </div> Code is updated for Pytorch 1.5.0 and CUDA10.2
 
 <p align="center"><img src="https://github.com/okankop/MFF-pytorch/blob/master/images/motion_fused_frames.jpg" align="middle" width="500" title="Motion Fused Frames" /></p>
 
@@ -13,15 +15,17 @@ Proceedings of the CVPR Workshop on Analysis and Modeling of Faces and Gestures.
 ](http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w41/Kopuklu_Motion_Fused_Frames_CVPR_2018_paper.pdf)
 
 
-### Requirements
-* [PyTorch 0.3.1](http://pytorch.org/) (version 0.4.0 raises dimension error at loading pretrained models from the model zoo)
+### Installation
+* Clone the repo with the following command:
+```bash
+git clone https://github.com/okankop/MFF-pytorch.git
+```
 
-* [OpenCV](https://opencv.org/) compiled with CUDA and FFmpeg, for optical flow calculation and data augmentations.
-
-* Python 3.6
-
-**Note**: always use `git clone --recursive https://github.com/okankop/MFF-pytorch` to clone this project
-Otherwise you will not be able to use the inception series CNN architecture.
+* Setup in virtual environment and install the requirements:
+```bash
+conda create -n MFF python=3.7.4
+pip install -r requirements.txt
+```
 
 ### Dataset Preparation
 Download the [jester dataset](https://www.twentybn.com/datasets/something-something) or [NVIDIA dynamic hand gestures dataset](http://research.nvidia.com/publication/online-detection-and-classification-dynamic-hand-gestures-recurrent-3d-convolutional) or [ChaLearn LAP IsoGD dataset](http://www.cbsr.ia.ac.cn/users/jwan/database/isogd.html). Decompress them into the same folder and use [process_dataset.py](process_dataset.py) to generate the index files for train, val, and test split. Poperly set up the train, validatin, and category meta files in [datasets_video.py](datasets_video.py). Finally, use directory [flow_computation](https://github.com/okankop/flow_computation) to calculate the optical flow images using Brox method.
@@ -84,4 +88,4 @@ year = {2018}
 ```
 
 ### Acknowledgement
-We thank Yuanjun Xiong for releasing [TSN-Pytorch codebase](https://github.com/yjxiong/temporal-segment-networks), which we build our work on top. We also thank Bolei Zhou for the insprational work [Temporal Segment Networks](https://arxiv.org/pdf/1711.08496.pdf), from which we imported [process_dataset.py](https://github.com/metalbubble/TRN-pytorch/blob/master/process_dataset.py) to our project.
+This project is built on top of the codebase [TSN-pytorch](https://github.com/yjxiong/temporal-segment-networks). We thank Yuanjun Xiong for releasing [TSN-Pytorch codebase](https://github.com/yjxiong/temporal-segment-networks), which we build our work on top. We also thank Bolei Zhou for the insprational work [Temporal Segment Networks](https://arxiv.org/pdf/1711.08496.pdf), from which we imported [process_dataset.py](https://github.com/metalbubble/TRN-pytorch/blob/master/process_dataset.py) to our project.
